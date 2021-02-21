@@ -1,12 +1,12 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 
-  import Controller from '../audioEngine/controller'
-  import SplashScreen from './SplashScreen.svelte';
+  import Controller from './engine/controller'
+  // import SplashScreen from './SplashScreen.svelte';
   import {
     unsupportedBrowser,
     audioEngineStatus
-  } from '../stores/common.js';
+  } from './stores/common.js';
 
   let controller;
   let router;

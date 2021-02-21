@@ -8,7 +8,7 @@
   // import Dashboard from '../../components/layouts/Dashboard.svelte';
   // import Markdown from "../../components/tutorial/Markdown.svelte";
 
-  import { goto, ready, url, params } from "@sveltech/routify";
+  import { goto, ready, url, params } from "@roxi/routify";
 
   // import { hydrateJSONcomponent } from '../../stores/common.js';
   // import { hydrateJSONcomponent } from '../../stores/playground.js';
