@@ -112,8 +112,8 @@ async function updateLiveCodeEditorPropsWithFetchedValues(item){
 				console.error('Error fetching props for Live Code Editor item')
 			}
     }
-	}
 }
+
 
 async function updateGrammarEditorPropsWithFetchedValues(item) {
 	if (item && item.data) {
