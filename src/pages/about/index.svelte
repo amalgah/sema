@@ -17,7 +17,7 @@
           Uniquely, Sema provides an integrated experience to machine learning and language design in your Web browser.
         </span>
         <span>
-          It is a playground for designing and training machine learning networks and creating your own languages, with an interpreter for machine learning libraries (e.g. <a href="https://www.tensorflow.org/js/" target="_blank">tensorflow.js</a>) and a compiler for <a href="https://hardmath123.github.io/earley.html" target="_blank">BNF grammars</a>.
+          It is a playground for designing and training machine learning networks, with an interpreter for machine learning libraries (e.g. <a href="https://www.tensorflow.org/js/" target="_blank">tensorflow.js</a>), and for creating your own languages, using a compiler for <a href="https://hardmath123.github.io/earley.html" target="_blank">BNF grammars</a>.
         </span>
       </p>
       <p>
@@ -39,10 +39,11 @@
       </p>
       <!-- <p> -->
         <ul>
+          <li>articles and news in our <a href="https://blog.sema.codes" target="_blank">blog</a></li>
           <li>video tutorials on our Youtube <a href="https://www.youtube.com/channel/UCMJVYzJaZBNnKP6f0le7Lxg" target="_blank">channel</a></li>
-          <li>talk to us on <a href="https://discord.gg/nNZMJfUHrS" target="_blank">Discord</a></li>
           <li>issues on <a href="https://github.com/mimic-sussex/sema" target="_blank">Github</a></li>
-          <li>drop us up an email at <a href="mailto://sema.live.coding@gmail.com" target="_blank">sema.live.coding@gmail.com</a></li>
+          <li>talk to us on <a href="https://discord.gg/nNZMJfUHrS" target="_blank">Discord</a></li>
+          <li>drop us an email at <a href="mailto://sema.live.coding@gmail.com" target="_blank">sema.live.coding@gmail.com</a></li>
         </ul>
       <!-- </p> -->
       <p>

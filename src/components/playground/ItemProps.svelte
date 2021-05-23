@@ -48,6 +48,10 @@
   let selectedVisualisationOption;
 
 
+  const changeVisualyzerChannelID = e => {
+    console.log(e.target.value)
+  }
+
 
   function dispatchAdd(type, selected){
     // console.log(`DEBUG:Sidebar:dispatchAdd: /add/${type}/${selected.id}`);
@@ -65,15 +69,21 @@
       //   $isSelectModelEditorDisabled = true;
       //   break;
       case 'grammar':
-        messaging.publish("playground-add", { type: 'grammarEditor', data: { grammar: $focusedItemProperties[2].grammar, grammarSource: $focusedItem.data.grammarSource }});
+        messaging.publish("playground-add", {
+                            type: 'grammarEditor',
+                            data: {
+                              grammar: $focusedItemProperties[2].grammar,
+                              grammarSource: $focusedItem.data.grammarSource
+                            }
+        });
 
         // selectedGrammarOption = sidebarGrammarOptions[0];
         $isAddGrammarEditorDisabled = true;
         break;
-      // case 'analyser':
-      //   messaging.publish("playground-add", { type: 'analyser' });
-      //   $isAddAnalyserDisabled = true;
-      //   break;
+      case 'analyser':
+        messaging.publish("playground-add", { type: 'analyser' });
+        $isAddAnalyserDisabled = true;
+        break;
       // case 'debugger':
       //   messaging.publish("playground-add", { type: selected.type });
       //   disableSelectDebuggerOption(selected.type);
@@ -230,6 +240,12 @@
 
   }
 
+  .number-input {
+    width: 35px;
+    height: 15px;
+    margin-left:5px;
+    padding: 2px;
+  }
 
   .button-dark:active {
     display: block;
@@ -327,8 +343,23 @@
             <input  type="checkbox"
                     class="checkbox-input"
                     checked="checked"
+                    value={$focusedItem.lineNumbers}
                     >
             <span  class="checkbox-span"></span>
+          </label>
+        </div>
+
+      {:else if itemProp.channelID }
+
+        <div class="controls">
+          <label class="input-dark">channel
+            <input  type="number"
+                    class="number-input"
+                    name="channel"
+                    value={$focusedItem.channelID}
+                    on:change={ e => changeVisualyzerChannelID(e) }
+                    >
+            <!-- <span  class="checkbox-span"></span> -->
           </label>
         </div>
 

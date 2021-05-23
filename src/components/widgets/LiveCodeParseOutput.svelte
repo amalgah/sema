@@ -1,6 +1,10 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
+<<<<<<< HEAD
 	//import Inspect from 'svelte-inspect';
+=======
+	// import Inspect from 'svelte-inspect';
+>>>>>>> 2fa4852019ec272a6d80a41d5902ddf7ae1a9eb0
 
   import {
     grammarCompilationErrors,

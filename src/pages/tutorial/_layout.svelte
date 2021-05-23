@@ -90,19 +90,23 @@
   };
 
   const onChildMount = e => {
-    // console.log("DEBUG:dashboard:onChildMount:", e.detail);
+    // console.log("DEBUG:dashboard:onChildMount:"ii, e.detail);
     $items = $items; // call a re-render
   };
 
   onMount( async () => {
 
     if(!controller.samplesLoaded){
-      controller.init('http://localhost:5000/sema-engine');
+      // controller.init('http://localhost:5000/sema-engine');
+      controller.init(document.location.origin + '/sema-engine');
       $goto(localStorage.getItem("tutorial-url"));
-    }
-// console.log(`layout:url:${$params.chapter}:params:${$params.section}}`);
 
-    if($items.length == 0){
+    }
+// // console.log(`layout:url:${$params.chapter}:params:${$params.section}}`);
+//     console.log(`tutorial:layout:url:${$params.chapter}:params:${$params.section}}`);
+//     console.log($items);
+
+    if($items.length === 0){
       let json = await fetch(document.location.origin + `/tutorial/01-basics/01-introduction/layout.json`)
                             .then( r => r.json());
 
@@ -115,7 +119,6 @@
       }
     }
 
-    console.log("DEBUG:routes/tutorial/_layout:onMount")
     // controller.init('http://localhost:5000/sema-engine');
   });
 

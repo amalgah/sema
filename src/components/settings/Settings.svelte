@@ -1,12 +1,12 @@
 <script>
   import Engine from './Engine.svelte';
-  // import SignOut from './user/SignOut';
-  // import SiteColor from './SiteColor.svelte';
   import SiteMode from './SiteMode.svelte';
   import Screen from './Screen.svelte';
   import Share from './Share.svelte';
-  import Save from './Save.svelte';
+  import Environment from './Environment.svelte';
   import Mouse from './Mouse.svelte';
+
+
 
 </script>
 
@@ -15,39 +15,39 @@
   .settings-container {
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
+    flex-direction: row;
     align-self: flex-end;
-    justify-content:end;
+    justify-content:space-between;
     border-bottom:1px solid #080808;
   }
+
 
 </style>
 
 
 <div class="settings-container">
 
-  <div style='width: 5px;'></div>
+  <!-- <div style='width: 5px;'></div> -->
 
-  <Screen />
+  <Mouse />
+
+  <Environment/>
+
   <div style='width: 5px;'></div>
 
   <Engine />
 
-  <div style='width: 10px;'></div>
+  <div style='width: 5px;'></div>
 
   <SiteMode />
 
-  <div style='width: 10px;'></div>
-
-  <Mouse />
-
-  <div style='width: 10px;'></div>
-
-  <Save/>
+  <Screen />
 
 
-  <div style='width: 10px;'></div>
+  <!-- <div style='width: 10px;'></div> -->
 
-  <Share/>
+
+
 
 </div>
