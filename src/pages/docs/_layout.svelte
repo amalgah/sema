@@ -30,8 +30,7 @@
     if(doc != undefined){ // There is a call with undefined value when navigating to Playground
       const res = await fetch(document.location.origin + `/docs/${doc}.md`)
       const text = await res.text();
-      // console.log(`DEBUG:[/${chapter}]/[${section}]:fetchMarkdown: `, text);
-      // await tick();
+
       if (res.ok) {
         // console.log('markdown processed');
         markdown = marked(text);
@@ -59,6 +58,7 @@
 
   });
 
+  //handle link clicks
   function handleClick(path){
     console.log('this is getting called');
     for (let i = 0; i < links.length; i++) {
