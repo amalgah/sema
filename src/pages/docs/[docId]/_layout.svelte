@@ -1,7 +1,7 @@
 <script>
 
   import { tick, onMount, onDestroy} from 'svelte';
-  import { url, params, ready, isActive, route, afterPageLoad} from "@roxi/routify";
+  import { url, params, ready, isActive, route, afterPageLoad, leftover} from "@roxi/routify";
   import marked from 'marked';
 
   import { links, chosenDocs } from '../../../stores/docs.js'
@@ -88,6 +88,7 @@
   let fetchMarkdown = async (docId, links) => {
     console.log("HERE last loaded doc", lastLoadedDoc);
     console.log("HERE docId", docId);
+    console.log("HERE, leftovers", $leftover);
     if (docId == lastLoadedDoc){
       return; 
     }
