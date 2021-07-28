@@ -20,6 +20,7 @@ import LiveCodeEditor from "../components/editors/LiveCodeEditor.svelte";
 import LiveCodeParseOutput from "../components/widgets/LiveCodeParseOutput.svelte";
 import GrammarCompileOutput from "../components/widgets/GrammarCompileOutput.svelte";
 import Analyser from "../components/widgets/Analyser.svelte";
+import Sequencer from "../components/widgets/Sequencer.svelte";
 import Visualiser from "../components/widgets/Visualiser.svelte";
 import StoreInspector from "../components/widgets/StoreInspector.svelte";
 import DSPCode from '../components/widgets/DSPCode.svelte'
@@ -187,6 +188,14 @@ export const sidebarVisualisationOptions = [
 
 export const isAddAnalyserDisabled = writable(false);
 
+//for sequencer
+export const sidebarSequencerOptions = [
+	{ id: 0, text: `Sequencing`, content: "" },
+	{ id: 1, text: `+ Audio Sequencer`, content: "" },
+];
+
+
+export const isAddSequencerDisabled = writable(false);
 
 export const editorThemes = [
 	{ id: 0, text: `Change Theme...`, content: "" },
@@ -545,6 +554,20 @@ export async function createNewItem (type, content){
 				2: gridHelp.item({ x: 0, y: 0, w: 1, h: 2 }),
 			};
 			break;
+			case "sequencer":
+				data = {
+					component: Sequencer,
+					background: '#191919',
+					mode: '',
+				};
+				layout = {
+					12: gridHelp.item({ x: 0, y: 0, w: 4, h: 4 }),
+					8: gridHelp.item({ x: 0, y: 0, w: 4, h: 4 }),
+					6: gridHelp.item({ x: 0, y: 0, w: 3, h: 3 }),
+					3: gridHelp.item({ x: 0, y: 0, w: 1, h: 2 }),
+					2: gridHelp.item({ x: 0, y: 0, w: 1, h: 2 }),
+				};
+				break;
 		case "visualiser":
 			data = {
 				component: Visualiser,

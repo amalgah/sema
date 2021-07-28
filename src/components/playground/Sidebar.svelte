@@ -23,6 +23,8 @@
 
     isAddAnalyserDisabled,
 
+    isAddSequencerDisabled,
+
     sidebarDebuggerOptions,
     selectedDebuggerOption,
     isSelectDebuggerDisabled,
@@ -45,7 +47,7 @@
 
 
 	import { createEventDispatcher } from 'svelte';
-import { siteMode } from "../../stores/common";
+  import { siteMode } from "../../stores/common";
 	const dispatch = createEventDispatcher();
 
 
@@ -63,6 +65,7 @@ import { siteMode } from "../../stores/common";
     $isSelectModelEditorDisabled = false;
     $isAddGrammarEditorDisabled = false;
     $isAddAnalyserDisabled = false;
+    $isAddSequencerDisabled = false;
     $sidebarDebuggerOptions.map( option => option.disabled = false );
   }
 
@@ -133,6 +136,10 @@ import { siteMode } from "../../stores/common";
       case 'analyser':
         messaging.publish("playground-add", { type: 'analyser' });
         $isAddAnalyserDisabled = true;
+        break;
+      case 'sequencer':
+        messaging.publish("playground-add", {type: 'sequencer'});
+        $isAddSequencerDisabled = true;
         break;
       case 'visualiser':
         messaging.publish("playground-add", { type: 'visualiser' });
@@ -215,6 +222,9 @@ import { siteMode } from "../../stores/common";
         case 'analyser':
           $isAddAnalyserDisabled = false;
           break;
+        case 'sequencer':
+          $isAddSequencerDisabled = false;
+          break;
         case 'grammarCompileOutput':
         case 'liveCodeParseOutput':
         case 'dspCode':
@@ -247,6 +257,9 @@ import { siteMode } from "../../stores/common";
             break;
           case 'analyser':
             $isAddAnalyserDisabled = true;
+            break;
+          case 'sequencer':
+            $isAddSequencerDisabled = true;
             break;
           case 'grammarCompileOutput':
           case 'liveCodeParseOutput':
@@ -717,6 +730,15 @@ import { siteMode } from "../../stores/common";
               disabled={ $isAddAnalyserDisabled }
               >
         analyser
+      </button>
+    </div>
+
+    <div>
+      <button class="{ $siteMode === 'dark'? 'button-dark' :'button-light' } controls"
+              on:click={ () => dispatchAdd('sequencer') }
+              disabled={ $isAddSequencerDisabled }
+              >
+        Sequencer
       </button>
     </div>
 

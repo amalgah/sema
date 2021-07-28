@@ -15,6 +15,7 @@
     isAddGrammarEditorDisabled,
 
     isAddAnalyserDisabled,
+    isAddSequencerDisabled,
 
     sidebarDebuggerOptions,
     selectedDebuggerOption,
@@ -85,6 +86,10 @@
       case 'analyser':
         messaging.publish("playground-add", { type: 'analyser' });
         $isAddAnalyserDisabled = true;
+        break;
+      case 'sequencer':
+        messaging.publish("playground-add", { type: 'sequencer' });
+        $isAddSequencerDisabled = true;
         break;
       // case 'debugger':
       //   messaging.publish("playground-add", { type: selected.type });
