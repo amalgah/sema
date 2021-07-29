@@ -13,11 +13,15 @@
   
   
       <button aria-expanded={expanded} on:click={() => expanded = !expanded}>
-        <a  class='nav-links' href={$url(path)}
-              class:active={$isActive(path)}
-              >
-            {headerText}
-          </a>
+        {#if path !== "undefined"} <!--make it a link if a path is provided-->
+          <a  class='nav-links' href={$url(path)}
+                class:active={$isActive(path)}
+                >
+              {headerText}
+            </a>
+        {:else if path === "undefined"} <!-- otherwise just use a paragraph-->
+          <p class='nav-links'>{headerText}</p>
+        {/if}
         <svg viewBox="0 0 20 20" fill="none" >
         <path class="vert" d="M10 1V19" stroke="black" stroke-width="2"/>
         <path d="M1 10L19 10" stroke="black" stroke-width="2"/>

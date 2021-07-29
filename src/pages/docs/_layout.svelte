@@ -7,6 +7,30 @@
 
   import { links, chosenDocs } from '../../stores/docs.js';
 
+  import Tree from './Tree.svelte'
+	let data = {
+		title:'x', 
+		children:[
+			{
+				title:'y', 
+				children:[
+					{
+						title:'z',
+						children:[
+							{
+								title:'a', 
+							}			
+						]
+					},
+					{
+						title:'u', 
+					}			
+				]
+			}			
+		]
+	}
+
+
   /*
   $: match = $route.path.match(/\/docs\/([^\/]+)\//);
   $: active = match && match[1];
@@ -24,7 +48,7 @@
     //promise = fetchMarkdown(doc);
     // console.log("DEBUG:routes/docs/_layout:onMount");
     //console.log('onMount', $chosenDocs)
-    $redirect($url($chosenDocs));
+    $redirect($url($chosenDocs)); //redirect to the last visited page
     // console.log("$links on mount", $links);
   });
 
@@ -134,9 +158,12 @@
 </svelte:head>
 
 <div class='container-docs' data-routify="scroll-lock">
-
-
+  
   <ul class='sidebar-menu'>
+
+    <Tree node={data} let:node></Tree>
+
+    <CollapsibleSection headerText=Documentation path="undefined">
     {#each $links as {path, name, file, subs}, i}
       {#if name == 'Welcome'}
         <h2>
@@ -160,8 +187,11 @@
         </CollapsibleSection>
       {/if}
     {/each}
+    </CollapsibleSection>
   </ul>
 
+
+  
 
 
   <!--
@@ -210,11 +240,11 @@
   -->
 
   <div>
-
+    <!--
     <slot>
       <!-- optional fallback -->
       <!--inject the markdown here-->
-    </slot>
+    <!-- </slot> -->
   </div>
 
 </div>
