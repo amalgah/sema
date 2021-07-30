@@ -168,6 +168,7 @@
         // console.log("tmpLinks", tmpLinks);
         $links = tmpLinks;
         $chosenDocs = tmpChosenDocs;
+        console.log($links);
     }
   }
 

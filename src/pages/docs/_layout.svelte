@@ -7,8 +7,10 @@
 
   import { links, chosenDocs } from '../../stores/docs.js';
 
-  import Tree from './Tree.svelte'
-	let data = {
+  console.log($links);
+  // import Tree from './Tree.svelte'
+	/*
+  let data = {
 		title:'x', 
 		children:[
 			{
@@ -29,6 +31,7 @@
 			}			
 		]
 	}
+  */
 
 
   /*
@@ -161,9 +164,9 @@
   
   <ul class='sidebar-menu'>
 
-    <Tree node={data} let:node></Tree>
+    <!-- <Tree node={data} let:node></Tree> -->
 
-    <CollapsibleSection headerText=Documentation path="undefined">
+    <!-- <CollapsibleSection headerText=Documentation path="undefined"> -->
     {#each $links as {path, name, file, subs}, i}
       {#if name == 'Welcome'}
         <h2>
@@ -187,7 +190,7 @@
         </CollapsibleSection>
       {/if}
     {/each}
-    </CollapsibleSection>
+    <!-- </CollapsibleSection> -->
   </ul>
 
 
